@@ -1,4 +1,4 @@
-package com.example.UserAuth.user;
+package com.example.UserAuth.security;
 
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;

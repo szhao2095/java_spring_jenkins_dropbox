@@ -1,5 +1,7 @@
-package com.example.UserAuth.user;
+package com.example.UserAuth.service;
 
+import com.example.UserAuth.model.User;
+import com.example.UserAuth.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        com.example.UserAuth.user.User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }

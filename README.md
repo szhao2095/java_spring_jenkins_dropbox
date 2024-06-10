@@ -1,7 +1,7 @@
 # java_spring_jenkins_dropbox
 Java Springboot, Jenkins + Dropbox pipeline
 
-Possible alternative project folder organization
+Folder organization
 ````
 src/main/java/com/example/demo
 │

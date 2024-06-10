@@ -1,5 +1,8 @@
-package com.example.UserAuth.user;
+package com.example.UserAuth.controller;
 
+import com.example.UserAuth.model.User;
+import com.example.UserAuth.repository.UserRepository;
+import com.example.UserAuth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;

@@ -1,5 +1,6 @@
-package com.example.UserAuth.user;
+package com.example.UserAuth.security;
 
+import com.example.UserAuth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

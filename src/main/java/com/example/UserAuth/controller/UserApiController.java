@@ -1,5 +1,6 @@
-package com.example.UserAuth.user;
+package com.example.UserAuth.controller;
 
+import com.example.UserAuth.service.UserService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
