@@ -4,9 +4,10 @@
     <title>Dashboard</title>
 </head>
 <body>
-<h1>Welcome, <span th:text="${username}"></span>!</h1>
-<form th:action="@{/logout}" method="post">
-    <button type="submit">Log Out</button>
-</form>
+    <a href="/"><button>Home</button></a>
+    <h1>Welcome, <span th:text="${username}"></span>!</h1>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Log Out</button>
+    </form>
 </body>
 </html>

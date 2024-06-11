@@ -32,6 +32,10 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(@RequestParam(value = "error", required = false) String error, Model model, HttpServletRequest request) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.isAuthenticated() && !(auth.getPrincipal() instanceof String)) {
+            return "redirect:/dashboard";
+        }
         if (error != null) {
             String errorMessage = (String) request.getSession().getAttribute("errorMessage");
             model.addAttribute("errorMessage", errorMessage);
@@ -41,6 +45,10 @@ public class UserController {
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.isAuthenticated() && !(auth.getPrincipal() instanceof String)) {
+            return "redirect:/dashboard";
+        }
         model.addAttribute("user", new User());
         return "register";
     }

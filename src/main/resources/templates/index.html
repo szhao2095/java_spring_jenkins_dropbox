@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Home</title>
 </head>
 <body>
-<h1>Welcome to Our Application</h1>
-<div>
-    <a href="/login"><button>Login</button></a>
-    <a href="/register"><button>Register</button></a>
-    <a href="/h2-console"><button>H2 Console</button></a>
-</div>
+    <h1>Welcome to Our Application</h1>
+    <div>
+        <a href="/login" sec:authorize="isAnonymous()"><button>Login</button></a>
+        <a href="/register" sec:authorize="isAnonymous()"><button>Register</button></a>
+        <a href="/dashboard" sec:authorize="isAuthenticated()"><button>Dashboard</button></a>
+        <a href="/h2-console"><button>H2 Console</button></a>
+    </div>
 </body>
 </html>
