@@ -19,17 +19,11 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping
 public class UserController {
-    @Autowired
-    private UserRepository userRepository;
-
     private final UserService userService;
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @GetMapping("/")
     public String home() {

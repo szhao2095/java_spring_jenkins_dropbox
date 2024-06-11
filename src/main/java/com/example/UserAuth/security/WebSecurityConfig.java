@@ -13,8 +13,24 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
+
+    private final CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
+    private final UserService userDetailsService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @Autowired
-    private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
+    public WebSecurityConfig(CustomAuthenticationFailureHandler customAuthenticationFailureHandler,
+                             UserService userDetailsService,
+                             BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.customAuthenticationFailureHandler = customAuthenticationFailureHandler;
+        this.userDetailsService = userDetailsService;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
+    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -53,14 +69,4 @@ public class WebSecurityConfig {
 //                .build();
 //        return new InMemoryUserDetailsManager(user);
 //    }
-
-    @Autowired
-    private UserService userDetailsService;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
-    }
 }
