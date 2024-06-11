@@ -1,5 +1,6 @@
 package com.example.UserAuth.controller;
 
+import com.example.UserAuth.exception.UsernameAlreadyExistsException;
 import com.example.UserAuth.model.User;
 import com.example.UserAuth.repository.UserRepository;
 import com.example.UserAuth.service.UserService;
@@ -54,9 +55,15 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerUser(User userForm) {
-        this.userService.save(userForm);
-        return "redirect:/login";
+    public String registerUser(User userForm, Model model) {
+        try {
+            userService.save(userForm);
+            return "redirect:/login";
+        } catch (UsernameAlreadyExistsException e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("user", userForm);
+            return "register";
+        }
     }
 
     @GetMapping("/dashboard")

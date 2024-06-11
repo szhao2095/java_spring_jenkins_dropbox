@@ -1,5 +1,6 @@
 package com.example.UserAuth.service;
 
+import com.example.UserAuth.exception.UsernameAlreadyExistsException;
 import com.example.UserAuth.model.User;
 import com.example.UserAuth.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,10 @@ public class UserService implements UserDetailsService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    public void save(User user) {
+    public void save(User user) throws UsernameAlreadyExistsException {
+        if (userRepository.findByUsername(user.getUsername()) != null) {
+            throw new UsernameAlreadyExistsException("Username already taken");
+        }
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
