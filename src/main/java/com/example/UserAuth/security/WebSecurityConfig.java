@@ -14,18 +14,12 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-    private final CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
-    private final UserService userDetailsService;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
-
     @Autowired
-    public WebSecurityConfig(CustomAuthenticationFailureHandler customAuthenticationFailureHandler,
-                             UserService userDetailsService,
-                             BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.customAuthenticationFailureHandler = customAuthenticationFailureHandler;
-        this.userDetailsService = userDetailsService;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-    }
+    private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
+    @Autowired
+    private UserService userDetailsService;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

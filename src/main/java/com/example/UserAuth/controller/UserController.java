@@ -20,11 +20,8 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping
 public class UserController {
-    private final UserService userService;
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    private UserService userService;
 
     @GetMapping("/")
     public String home() {

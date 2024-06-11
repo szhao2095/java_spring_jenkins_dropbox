@@ -9,12 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 @RequestMapping(path = "api/vi/user")
 public class UserApiController {
-    private final UserService userService;
-
     @Autowired
-    public UserApiController(UserService userService) {
-        this.userService = userService;
-    }
+    private UserService userService;
 
     @GetMapping
     public String test() {
