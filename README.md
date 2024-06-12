@@ -2,13 +2,11 @@
 Java Springboot, Jenkins + Docker pipeline
 
 ### TODO:
-- Unit test for controller
-- Integration tests
-- Jenkins pipeline
-- Docker setup related
-- iaas ?
-- Frontend related Typescript etc..
-- Postgres
+- [ ] Frontend related Typescript etc..
+- [ ] Postgres
+- [ ] Integration tests
+- [ ] Unit test for controller ?
+- [ ] iaas ?
 
 Folder organization
 ````
@@ -50,3 +48,11 @@ src/test/java/com/example/UserAuth
 │   └── UserServiceTests.java
 │
 ````
+
+
+```mermaid
+Pipeline;
+    SCM(Git)-->Jenkins (Docker image);
+    Jenkins-->Agent (Docker image, same Docker using alpine:socat)
+    Agent-->Build, Test, Upload to Dockerhub
+```
