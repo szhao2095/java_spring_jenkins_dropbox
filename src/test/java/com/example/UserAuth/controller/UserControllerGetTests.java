@@ -116,48 +116,4 @@ public class UserControllerGetTests {
                 .andExpect(status().isOk())
                 .andExpect(view().name("dashboard"));
     }
-
-    // Functionality
-
-//    @Test
-//    public void UserController_Login_ValidCredentialsRedirectToDashboard() throws Exception {
-//        Authentication authentication = mock(Authentication.class);
-//        when(authentication.isAuthenticated()).thenReturn(true);
-//        when(authentication.getPrincipal()).thenReturn(new Object()); // Mock a non-String principal
-//
-//        SecurityContext securityContext = mock(SecurityContext.class);
-//        when(securityContext.getAuthentication()).thenReturn(authentication);
-//        SecurityContextHolder.setContext(securityContext);
-//
-//        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
-//
-//        mockMvc.perform(MockMvcRequestBuilders.get("/login"))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(redirectedUrl("/dashboard"));
-//    }
-
-//    @Test
-//    @WithMockUser(username = "user", roles = {"USER"})
-//    public void UserControllerTests_registerUser_savesUserAndRedirectsToLogin() throws Exception {
-//        mockMvc.perform(MockMvcRequestBuilders.post("/register")
-//                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-//                .param("username", "testuser")
-//                .param("password", "password"))
-//                .andExpect(status().is3xxRedirection())
-//                .andExpect(redirectedUrl("/login"));
-//
-//        assertNotNull(userRepository.findByUsername("testuser"));
-//    }
-//
-//    @Test
-//    @WithMockUser(username = "user", roles = {"USER"})
-//    public void UserControllerTests_dashboard_addsUsernameAndReturnsDashboard() throws Exception {
-//        when(securityContext.getAuthentication()).thenReturn(authentication);
-//        when(authentication.getName()).thenReturn("testuser");
-//
-//        mockMvc.perform(MockMvcRequestBuilders.get("/dashboard"))
-//                .andExpect(status().isOk())
-//                .andExpect(view().name("dashboard"))
-//                .andExpect(model().attribute("username", "testuser"));
-//    }
 }
