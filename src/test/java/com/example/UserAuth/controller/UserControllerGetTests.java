@@ -58,7 +58,7 @@ public class UserControllerGetTests {
     public void UserController_Home_AnyOneCanGet() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("index"));
+                .andExpect(view().name("home"));
     }
 
     @Test
@@ -66,7 +66,7 @@ public class UserControllerGetTests {
     public void UserController_Home_LoggedInUserCanAccess() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("index"));
+                .andExpect(view().name("home"));
     }
 
     @Test
