@@ -10,5 +10,8 @@ COPY target/UserAuth-0.0.1-SNAPSHOT.jar app.jar
 # Expose the port your Spring Boot application will run on
 EXPOSE 8080
 
+# Set environment variable to use the production profile
+ENV SPRING_PROFILES_ACTIVE=prod
+
 # Set the entrypoint to run the JAR file
 ENTRYPOINT ["java", "-jar", "app.jar"]
