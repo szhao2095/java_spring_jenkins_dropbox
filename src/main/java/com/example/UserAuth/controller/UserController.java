@@ -26,7 +26,7 @@ public class UserController {
     @GetMapping("/")
     public String home() {
         logger.info("Accessing home page");
-        return "index";
+        return "home";
     }
 
     @GetMapping("/login")
