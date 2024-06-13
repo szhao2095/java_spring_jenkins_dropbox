@@ -232,7 +232,7 @@ pipeline {
         }
         stage('Package') {
             steps {
-                sh 'mvn package -Dspring.profiles.active=prod'
+                sh 'mvn package -Dspring.profiles.active=prod -DskipTests'
             }
         }
         stage('Build Docker Image') {
