@@ -3,7 +3,6 @@ Java Springboot, Jenkins + Docker pipeline
 
 ### TODO:
 - [ ] Frontend related Typescript etc..
-- [ ] Postgres
 - [ ] Integration tests
 - [ ] Unit test for controller ?
 - [ ] iaas ?
@@ -54,5 +53,6 @@ src/test/java/com/example/UserAuth
 Pipeline;
     SCM(Git)-->Jenkins (Docker image);
     Jenkins-->Agent (Docker image, same Docker using alpine:socat)
-    Agent-->Build, Test, Upload to Dockerhub
+    Agent-->Build, Test (using application-test.properties)
+    Agent-->Build docker image (with prod configured in ENV), Upload to Dockerhub
 ```
