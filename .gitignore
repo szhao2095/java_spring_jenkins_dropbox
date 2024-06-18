@@ -32,8 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 
-notes.txt
-
 # Compiled class file
 *.class
 
@@ -59,3 +57,5 @@ notes.txt
 hs_err_pid*
 replay_pid*
 
+/frontend
+notes.txt
